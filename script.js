@@ -38,3 +38,16 @@ q(".search-panel").addEventListener("submit",event=>{event.preventDefault();filt
 const menu=q(".menu-button");menu.addEventListener("click",()=>{const open=q(".main-nav").classList.toggle("open");menu.setAttribute("aria-expanded",String(open))});qa(".main-nav a").forEach(link=>link.addEventListener("click",()=>q(".main-nav").classList.remove("open")));
 q(".subscribe-form").addEventListener("submit",event=>{event.preventDefault();notify("Welcome to the YURS circle");event.target.reset()});
 const terms=q(".terms-dialog");q(".terms-open").addEventListener("click",()=>terms.showModal());q(".terms-close").addEventListener("click",()=>terms.close());
+
+const digitalMore=q(".digital-more");
+if(digitalMore){
+  digitalMore.addEventListener("click",()=>{
+    const hidden=qa(".digital-card-hidden").slice(0,16);
+    hidden.forEach(card=>card.classList.remove("digital-card-hidden"));
+    const remaining=qa(".digital-card-hidden").length;
+    digitalMore.innerHTML=remaining?`Show more artwork (${remaining}) <span>→</span>`:"";
+    digitalMore.hidden=!remaining;
+    digitalMore.setAttribute("aria-expanded",String(!remaining));
+  });
+  digitalMore.innerHTML=`Show more artwork (${qa(".digital-card-hidden").length}) <span>→</span>`;
+}

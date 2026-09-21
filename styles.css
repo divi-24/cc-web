@@ -831,3 +831,106 @@ address {
   .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:25px 10px}.product-meta h3{font-size:.9rem}.quick-add{position:static;transform:none;width:100%;margin-top:-1px}
   .shop-toolbar{align-items:flex-start;flex-direction:column}.gallery-copy{padding:55px 20px}.gallery-grid{min-height:390px}.circle-section{padding:55px 20px;gap:35px}.subscribe-form{grid-template-columns:1fr}.subscribe-form button{grid-column:1}.site-footer{gap:32px}
 }
+
+.digital-section {
+  padding: clamp(58px, 7vw, 104px) 6.5vw;
+  background: #f7f3ea;
+}
+
+.digital-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 36px;
+  margin-bottom: 34px;
+}
+
+.digital-heading h2 {
+  max-width: 720px;
+  margin: 0;
+  color: var(--forest);
+  font: 700 clamp(2.3rem, 4.5vw, 4.8rem)/1.02 "Playfair Display", Georgia, serif;
+}
+
+.digital-heading > p {
+  max-width: 420px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.digital-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 34px 18px;
+}
+
+.digital-card {
+  min-width: 0;
+}
+
+.digital-card img {
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: var(--sand);
+  transition: transform 300ms ease, filter 300ms ease;
+}
+
+.digital-card:hover img {
+  transform: translateY(-4px);
+  filter: saturate(1.08);
+}
+
+.digital-card div {
+  padding-top: 14px;
+}
+
+.digital-card h3 {
+  margin: 0;
+  font: 600 1.12rem "Playfair Display", Georgia, serif;
+}
+
+.digital-card p {
+  margin: 7px 0 12px;
+  color: var(--muted);
+  font-size: .84rem;
+}
+
+.digital-card a {
+  color: var(--emerald);
+  font-size: .82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+@media (max-width: 1080px) {
+  .digital-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 760px) {
+  .digital-section { padding: 55px 20px; }
+  .digital-heading { align-items: flex-start; flex-direction: column; gap: 15px; }
+  .digital-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 12px; }
+}
+
+@media (max-width: 520px) {
+  .digital-section { padding-right: 16px; padding-left: 16px; }
+  .digital-grid { grid-template-columns: 1fr; gap: 36px; }
+  .digital-card img { aspect-ratio: 1.15; }
+}
+
+.digital-card-hidden {
+  display: none;
+}
+
+.digital-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 44px;
+}
+
+.digital-more[hidden] {
+  display: none;
+}
