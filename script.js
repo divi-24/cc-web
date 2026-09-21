@@ -1,5 +1,11 @@
 const q=(s,p=document)=>p.querySelector(s),qa=(s,p=document)=>[...p.querySelectorAll(s)];
 const cards=qa(".product-card"),grid=q(".product-grid"),toast=q(".toast");
+
+qa(".product-image").forEach((image,index)=>{
+  image.dataset.edition=`YURS-IND-${String(index+1).padStart(4,"0")}`;
+  image.dataset.stamp=String(index%4+1);
+});
+
 let cart=[],wish=0,filter="all";
 
 function notify(message){toast.textContent=message;toast.classList.add("show");clearTimeout(notify.timer);notify.timer=setTimeout(()=>toast.classList.remove("show"),2200)}

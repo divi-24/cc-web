@@ -1014,3 +1014,94 @@ address {
     flex-direction: column;
   }
 }
+
+/* Authenticity stamps on artwork */
+.product-image,
+.digital-art {
+  position: relative;
+  isolation: isolate;
+  padding: 9px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #221a14, #584632 48%, #1b1712);
+  border: 1px solid #80683f;
+  box-shadow: 0 12px 24px rgba(26, 20, 14, .16), inset 0 0 0 2px #b49255;
+}
+
+.product-image > img,
+.digital-art > img {
+  display: block;
+  border: 2px solid #d2b270;
+}
+
+.digital-art > img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.product-image::after,
+.digital-art::after {
+  position: absolute;
+  right: 16px;
+  bottom: 18px;
+  z-index: 4;
+  width: clamp(48px, 27%, 88px);
+  aspect-ratio: 2 / 3;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  filter: drop-shadow(0 3px 4px rgba(0, 0, 0, .34));
+  pointer-events: none;
+}
+
+.product-image::before,
+.digital-art::before {
+  position: absolute;
+  right: 14px;
+  bottom: 10px;
+  z-index: 5;
+  padding: 3px 5px;
+  color: #fff8e8;
+  background: rgba(20, 43, 31, .92);
+  border: 1px solid rgba(216, 188, 119, .9);
+  content: attr(data-edition);
+  font: 700 clamp(6px, .58vw, 9px)/1 Inter, sans-serif;
+  letter-spacing: .04em;
+  pointer-events: none;
+}
+
+[data-stamp="1"]::after { background-image: url("web-assets/yurs-authenticity-stamp.png"); }
+[data-stamp="2"]::after { background-image: url("web-assets/yurs-authenticity-stamp-tiger.png"); }
+[data-stamp="3"]::after { background-image: url("web-assets/yurs-authenticity-stamp-himalaya.png"); aspect-ratio: 3 / 2; width: clamp(68px, 34%, 112px); }
+[data-stamp="4"]::after { background-image: url("web-assets/yurs-authenticity-stamp-elephant.png"); }
+
+.quick-add {
+  z-index: 7;
+}
+
+@media (max-width: 520px) {
+  .product-image,
+  .digital-art {
+    padding: 7px;
+  }
+
+  .product-image::after,
+  .digital-art::after {
+    right: 13px;
+    bottom: 16px;
+    width: clamp(58px, 23%, 84px);
+  }
+
+  [data-stamp="3"]::after {
+    width: clamp(76px, 31%, 106px);
+  }
+
+  .product-image::before,
+  .digital-art::before {
+    right: 11px;
+    bottom: 8px;
+    font-size: 7px;
+  }
+}
