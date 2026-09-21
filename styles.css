@@ -934,3 +934,83 @@ address {
 .digital-more[hidden] {
   display: none;
 }
+
+.authenticity-section {
+  display: grid;
+  grid-template-columns: minmax(250px, 380px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(48px, 8vw, 120px);
+  padding: clamp(64px, 8vw, 118px) 9%;
+  background: #183e2d;
+  color: #fff;
+}
+
+.authenticity-stamp {
+  display: grid;
+  place-items: center;
+}
+
+.authenticity-stamp img {
+  width: min(100%, 330px);
+  height: auto;
+  filter: drop-shadow(0 24px 32px rgba(0, 0, 0, .25));
+  transform: rotate(-2deg);
+}
+
+.authenticity-copy {
+  max-width: 720px;
+}
+
+.authenticity-copy h2 {
+  margin: 0;
+  color: #fff;
+  font: 700 clamp(2.5rem, 5vw, 5.4rem)/1 "Playfair Display", Georgia, serif;
+}
+
+.authenticity-copy > p {
+  max-width: 650px;
+  margin: 25px 0 30px;
+  color: #dbe7df;
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.authenticity-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.authenticity-points span {
+  border: 1px solid rgba(214, 185, 112, .65);
+  padding: 10px 13px;
+  color: #f5e8c8;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+  .authenticity-section {
+    grid-template-columns: 1fr;
+    gap: 42px;
+    padding: 60px 20px;
+  }
+
+  .authenticity-stamp img {
+    width: min(74vw, 300px);
+  }
+}
+
+@media (max-width: 520px) {
+  .authenticity-section {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .authenticity-points {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
